@@ -1,5 +1,6 @@
 package one.digitalinnovation.gof.controller;
 
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -34,7 +35,7 @@ public class ClienteRestController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Cliente> buscarPorId(@PathVariable Long id) {
+	public ResponseEntity<Cliente> buscarPorId(@PathVariable Long id) throws NotFoundException {
 		return ResponseEntity.ok(clienteService.buscarPorId(id));
 	}
 
